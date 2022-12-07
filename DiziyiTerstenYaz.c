@@ -2,12 +2,31 @@
 
 int main()
 {
-    printf("Lutfen 5 adet sayı giriniz.\n"); //Kullanıcıya bilgi verilir.
-    int sayilar[5]={}; //Dizi tanımlama
-    for (int i = 0; i < 5; i++)
-        scanf("%d",&sayilar[i]); //Döngü ile Dizi için kullanıcıdan sayı alınır
-    printf("Girdiğiniz sayıların tersi:"); //Kullanıcıya bilgi verilir.
-    for (int i = 4; i >= 0; i--) //Ters döngü ile alınan değerler geri yazılır.
-        printf(" %d ",sayilar[i]);
+    //Veriable Decleration
+    int sonuclar[20],gecenler=0;
+    float sonuc=0;
+    
+    //Executable Statement
+    printf("Lütfen 20 adet notu giriniz:\n"); // Kullanıcıya bilgi kısmı.
+    for (int i = 0; i <20; i++)
+    {
+        printf("%d. not: ",i+1); //Kullanıcıya kaçıncı notta olduğunun bilgilendirmesi.
+        scanf("%d",&sonuclar[i]); //Kullanıcıdan notun alınması.
+        sonuc=sonuc+sonuclar[i]; //Sınıfın toplam notunun bulunması.
+    }
+    sonuc=sonuc/20; //Ekstra bir değişken ekleyip verimliliği azaltmamak için aynı değişken ile ortalama hesabı.
+    printf("Sınıfın ortalaması %.2f'dir.\n",sonuc); //Sınıf ortalamasının yazdırılması
+    printf("Gecenler şunlardır:\n"); 
+    for (int i = 0; i < 20; i++)
+    {
+        if (sonuclar[i]>sonuc) //Sonuçların ortalamadan büyük olup olmadığının belirlenmesi
+        {
+            gecenler++; //Geçen kişi sayısını belirlemek için sayaç.
+            printf("%d\n",sonuclar[i]); //Geçen notların yazdırılması
+        }
+        
+    }
+    printf("Toplamda %d kişi geçmiştir.",gecenler); //Geçen kişilerin toplam sayısı.
+    
     return 0;
 }
